@@ -1,13 +1,15 @@
 import { CoreMessage, generateText } from "ai";
-import { model } from "../_internal/setup";
-
 import { Page } from "playwright";
+
+import { model } from "../_internal/setup";
 import { MEDICAL_FORM_URL } from "../consts";
 import { createSession } from "../session";
+
 import { fillOutEmergencyContactAction } from "./actions/fillOutEmergencyContactAction";
 import { fillOutMedicalInformationAction } from "./actions/fillOutMedicalInformationAction";
 import { fillOutPersonalInformationAction } from "./actions/fillOutPersonalInformation";
 import { submitFormAction } from "./actions/submitFormAction";
+
 import { logThinking } from "./helpers/logger-helper";
 import { handleOutcome } from "./helpers/success-helper";
 
