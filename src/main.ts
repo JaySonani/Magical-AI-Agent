@@ -1,20 +1,9 @@
-import { generateText } from "ai";
-import { model } from "./_internal/setup";
-import { createSession } from "./session";
+import app from "./api/api";
+import { PORT } from "./consts";
 
 export async function main() {
-  // This will automatically create a chromium instance, connect, and navigate to the given url.
-  // You are given a playwright page back.
-  const page = await createSession("https://www.google.com");
-
-  // We've given you an API key and a model, you can use the vercel AI SDK to generate text, setup tools, etc.
-  const response = await generateText({
-    model,
-    prompt: "How many r's are in strawberry?"
+  app.listen(PORT, () => {
+    console.log("Server is running..");
+    console.log(`AI Agent is ready to be invoked at http://localhost:${PORT}`);
   });
-
-  console.log('first')
-  console.log(response);
-
-  
 }
